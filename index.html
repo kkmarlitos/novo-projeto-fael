@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="notebook_style.css" media="screen and (min-width:1300px)">
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        body{
+            width: 100vw;
+            height: 100vh;
+        }
+        header{
+            padding: 5vw;
+        }
+        nav{
+            display: flex;
+            border-bottom: 1px solid black;
+        }
+        #contas_container{
+            margin-left: 70vw;
+        }
+        #contas_container>span{
+            font-size: 8vw;
+        }
+        ul{
+            list-style-type: none;
+            display: flex;
+            justify-content: space-around;
+            padding: 0px 0px 3vw 0px;
+        }
+        h1{
+            font-size: 6vw;
+            text-align: center;
+            padding-bottom: 3vw;
+        }
+        .evento{
+            width: 90vw;
+            border: 1px solid rgba(0, 0, 0, 0.507);
+            border-radius: 10px;
+            box-shadow: 5px 7px 15px rgba(0, 0, 0, 0.712);
+            margin: auto;
+        }
+        .nome_organizador{
+            font-size: 5vw;
+            font-weight: bold;
+            padding: 2vw 2vw 2vw 3vw;
+        }
+        #container_img_evento{
+            margin: auto;
+            width: 70vw;
+        }
+        .img_evento{
+            width: 70vw;
+            height: 40vw;
+        }
+        #container_info_evento{
+            display: flex;
+            justify-content: space-around;
+        }
+        .preco{
+            padding: 1.5vw 0px 2vw 0px;
+        }
+        .data_evento{
+            padding: 1.5vw 0px 2vw 0px;
+        }
+        #barra_lateral{
+            transition: height 1s;
+            width: 30vw;
+            height: 0px;
+            background-color: rgba(0, 0, 0, 0.568);
+            transform: translate(55vw, -51vh);
+            color: white;
+            border-radius: 5px 0px 5px 5px;
+        }
+        #barra_lateral>p{
+            padding: 2px;
+            text-align: end;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <p>Logo</p>
+            <div id="contas_container">
+                <span class="material-symbols-outlined">
+                    account_circle
+                </span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <ul>
+            <li>Workshops</li>
+            <li>Festivais</li>
+            <li>Eventos</li>
+        </ul>
+
+        <h1>Lista de Workshops</h1>
+
+        <div id="conteudo_main">
+
+            <div class="evento">
+                <p class="nome_organizador">Organizador</p>
+                <div id="container_img_evento">
+                    <img src="25_evento.jpg" alt="local_evento" class="img_evento">
+                </div>
+                <div id="container_info_evento">
+                    <p class="preco">R$20,00</p>
+                    <p class="data_evento">12/09</p>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <div id="barra_lateral">
+        <p>conta1</p>
+        <p>conta2</p>
+    </div>
+
+    <script>
+        const manipulando_contas = {
+            contas : document.querySelector('#contas_container>span'),
+            barra_lateral : document.getElementById('barra_lateral'),
+            barra_p: document.querySelectorAll('#barra_lateral>p'),
+
+            trocando_contas: function(){
+                let abre_fecha = 0
+
+                manipulando_contas.contas.addEventListener('click', () =>{
+                    if(abre_fecha == 0){
+                        manipulando_contas.barra_lateral.style = `height: 12vw;`
+
+                        abre_fecha ++
+                    }
+                    else{
+                        manipulando_contas.barra_lateral.style = `height: 0vw;`
+
+                        abre_fecha --
+                    }
+                })
+            }
+
+
+        }
+        manipulando_contas.trocando_contas()
+        
+    </script>
+
+</body>
+</html>
