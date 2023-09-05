@@ -69,18 +69,22 @@
         .data_evento{
             padding: 1.5vw 0px 2vw 0px;
         }
-        #barra_lateral{
+        #container_barra_lateral{
             transition: height 1s;
             width: 30vw;
-            height: 0px;
+            height: 0vw;
+            overflow: hidden;
             background-color: rgba(0, 0, 0, 0.568);
             transform: translate(55vw, -51vh);
             color: white;
             border-radius: 5px 0px 5px 5px;
         }
         #barra_lateral>p{
-            padding: 2px;
+            padding: 3px;
             text-align: end;
+        }
+        #barra_lateral>p:active{
+            background-color: white;
         }
     </style>
 </head>
@@ -98,9 +102,9 @@
 
     <main>
         <ul>
-            <li>Workshops</li>
-            <li>Festivais</li>
-            <li>Eventos</li>
+            <li class="escolha_eventos">Workshops</li>
+            <li class="escolha_eventos">Festivais</li>
+            <li class="escolha_eventos">Eventos</li>
         </ul>
 
         <h1>Lista de Workshops</h1>
@@ -121,38 +125,18 @@
         </div>
     </main>
 
-    <div id="barra_lateral">
-        <p>conta1</p>
-        <p>conta2</p>
+    <div id="container_barra_lateral">
+        <div id="barra_lateral">
+            <p>User</p>
+            <p>Adm</p>
+        </div>
     </div>
 
+    <script src="contas.js"></script>
+
     <script>
-        const manipulando_contas = {
-            contas : document.querySelector('#contas_container>span'),
-            barra_lateral : document.getElementById('barra_lateral'),
-            barra_p: document.querySelectorAll('#barra_lateral>p'),
-
-            trocando_contas: function(){
-                let abre_fecha = 0
-
-                manipulando_contas.contas.addEventListener('click', () =>{
-                    if(abre_fecha == 0){
-                        manipulando_contas.barra_lateral.style = `height: 12vw;`
-
-                        abre_fecha ++
-                    }
-                    else{
-                        manipulando_contas.barra_lateral.style = `height: 0vw;`
-
-                        abre_fecha --
-                    }
-                })
-            }
-
-
-        }
-        manipulando_contas.trocando_contas()
         
+
     </script>
 
 </body>
