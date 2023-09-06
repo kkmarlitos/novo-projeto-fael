@@ -28,6 +28,7 @@
         #contas_container>span{
             font-size: 8vw;
         }
+        
         ul{
             list-style-type: none;
             display: flex;
@@ -45,6 +46,7 @@
             border-radius: 10px;
             box-shadow: 5px 7px 15px rgba(0, 0, 0, 0.712);
             margin: auto;
+            margin-bottom: 4vw;
         }
         .nome_organizador{
             font-size: 5vw;
@@ -75,9 +77,10 @@
             height: 0vw;
             overflow: hidden;
             background-color: rgba(0, 0, 0, 0.568);
-            transform: translate(55vw, -51vh);
+            transform: translate(55vw, -2vh);
             color: white;
             border-radius: 5px 0px 5px 5px;
+            position: fixed;
         }
         #barra_lateral>p{
             padding: 3px;
@@ -91,7 +94,7 @@
 <body>
     <header>
         <nav>
-            <p>Logo</p>
+            <p id="logo">Logo</p>
             <div id="contas_container">
                 <span class="material-symbols-outlined">
                     account_circle
@@ -99,6 +102,13 @@
             </div>
         </nav>
     </header>
+    
+    <div id="container_barra_lateral">
+        <div id="barra_lateral">
+            <p>User</p>
+            <p>Adm</p>
+        </div>
+    </div>
 
     <main>
         <ul>
@@ -113,30 +123,72 @@
 
             <div class="evento">
                 <p class="nome_organizador">Organizador</p>
+
                 <div id="container_img_evento">
                     <img src="25_evento.jpg" alt="local_evento" class="img_evento">
                 </div>
+
                 <div id="container_info_evento">
                     <p class="preco">R$20,00</p>
                     <p class="data_evento">12/09</p>
                 </div>
-
             </div>
+
         </div>
     </main>
 
-    <div id="container_barra_lateral">
-        <div id="barra_lateral">
-            <p>User</p>
-            <p>Adm</p>
-        </div>
-    </div>
+    
 
     <script src="contas.js"></script>
 
     <script>
-        
+        const criando_eventos = {
+            logo: document.getElementById('logo'),
+            conteudo_main: document.getElementById('conteudo_main'),
 
+            criando_div_evento: function(){
+                //div de evento
+                const div_evento = document.createElement('div')
+                div_evento.classList.add('evento')
+
+                //conteudos da div
+                const nome_organizador = document.createElement('p')
+                nome_organizador.classList.add('nome_organizador')
+                nome_organizador.textContent = 'Mutantes'
+                
+                const container_img_evento = document.createElement('div')
+                container_img_evento.id = 'container_img_evento'
+                const img_evento = document.createElement('img')
+                img_evento.classList.add('img_evento')
+                img_evento.src = '25_evento.jpg'
+
+                const container_info_evento = document.createElement('div')
+                container_info_evento.id = 'container_info_evento'
+                const preco = document.createElement('p')
+                preco.classList.add('preco')
+                preco.textContent = '22,00'
+                const data_evento = document.createElement('p')
+                data_evento.classList.add('data_evento')
+                data_evento.textContent = '12/02'
+
+                //adicionando os conteudos na div principal
+                criando_eventos.conteudo_main.appendChild(div_evento)
+
+                div_evento.appendChild(nome_organizador)
+                div_evento.appendChild(container_img_evento)
+                container_img_evento.appendChild(img_evento)
+                div_evento.appendChild(container_info_evento)
+                container_info_evento.appendChild(preco)
+                container_info_evento.appendChild(data_evento)
+            },
+
+            finalizando_criacao: function(){
+                criando_eventos.logo.addEventListener('click', () =>{
+                    criando_eventos.criando_div_evento()
+                })
+            }
+        }
+        criando_eventos.finalizando_criacao()
     </script>
 
 </body>
