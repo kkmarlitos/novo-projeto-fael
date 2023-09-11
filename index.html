@@ -6,89 +6,11 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="notebook_style.css" media="screen and (min-width:1300px)">
+    <link rel="stylesheet" href="style.css">
     <style>
-        *{
-            margin: 0px;
-            padding: 0px;
-        }
-        body{
-            width: 100vw;
-            height: 100vh;
-        }
-        header{
-            padding: 5vw;
-        }
-        nav{
-            display: flex;
-            border-bottom: 1px solid black;
-        }
-        #contas_container{
-            margin-left: 70vw;
-        }
-        #contas_container>span{
-            font-size: 8vw;
-        }
-        
-        ul{
-            list-style-type: none;
-            display: flex;
-            justify-content: space-around;
-            padding: 0px 0px 3vw 0px;
-        }
-        h1{
-            font-size: 6vw;
-            text-align: center;
-            padding-bottom: 3vw;
-        }
-        .evento{
-            width: 90vw;
-            border: 1px solid rgba(0, 0, 0, 0.507);
-            border-radius: 10px;
-            box-shadow: 5px 7px 15px rgba(0, 0, 0, 0.712);
-            margin: auto;
-            margin-bottom: 4vw;
-        }
-        .nome_organizador{
-            font-size: 5vw;
-            font-weight: bold;
-            padding: 2vw 2vw 2vw 3vw;
-        }
-        #container_img_evento{
-            margin: auto;
-            width: 70vw;
-        }
-        .img_evento{
-            width: 70vw;
-            height: 40vw;
-        }
-        #container_info_evento{
-            display: flex;
-            justify-content: space-around;
-        }
-        .preco{
-            padding: 1.5vw 0px 2vw 0px;
-        }
-        .data_evento{
-            padding: 1.5vw 0px 2vw 0px;
-        }
-        #container_barra_lateral{
-            transition: height 1s;
-            width: 30vw;
-            height: 0vw;
-            overflow: hidden;
-            background-color: rgba(0, 0, 0, 0.568);
-            transform: translate(55vw, -2vh);
-            color: white;
-            border-radius: 5px 0px 5px 5px;
-            position: fixed;
-        }
-        #barra_lateral>p{
-            padding: 3px;
-            text-align: end;
-        }
-        #barra_lateral>p:active{
-            background-color: white;
-        }
+       #container_eventos{
+        display: none;
+       }
     </style>
 </head>
 <body>
@@ -111,84 +33,34 @@
     </div>
 
     <main>
-        <ul>
-            <li class="escolha_eventos">Workshops</li>
-            <li class="escolha_eventos">Festivais</li>
-            <li class="escolha_eventos">Eventos</li>
-        </ul>
-
-        <h1>Lista de Workshops</h1>
-
-        <div id="conteudo_main">
-
-            <div class="evento">
-                <p class="nome_organizador">Organizador</p>
-
-                <div id="container_img_evento">
-                    <img src="25_evento.jpg" alt="local_evento" class="img_evento">
-                </div>
-
-                <div id="container_info_evento">
-                    <p class="preco">R$20,00</p>
-                    <p class="data_evento">12/09</p>
+        <div id="container_eventos">
+            <ul>
+                <li class="escolha_eventos">Workshops</li>
+                <li class="escolha_eventos">Festivais</li>
+                <li class="escolha_eventos">Eventos</li>
+            </ul>
+            <h1>Lista de Workshops</h1>
+            <div id="conteudo_eventos">
+                <div class="evento">
+                    <p class="nome_organizador">Organizador</p>
+                    <div id="container_img_evento">
+                        <img src="25_evento.jpg" alt="local_evento" class="img_evento">
+                    </div>
+                    <div id="container_info_evento">
+                        <p class="preco">R$20,00</p>
+                        <p class="data_evento">12/09</p>
+                    </div>
                 </div>
             </div>
-
         </div>
+
     </main>
 
-    
-
-    <script src="contas.js"></script>
+    <script src="main.js"></script>
 
     <script>
-        const criando_eventos = {
-            logo: document.getElementById('logo'),
-            conteudo_main: document.getElementById('conteudo_main'),
 
-            criando_div_evento: function(){
-                //div de evento
-                const div_evento = document.createElement('div')
-                div_evento.classList.add('evento')
 
-                //conteudos da div
-                const nome_organizador = document.createElement('p')
-                nome_organizador.classList.add('nome_organizador')
-                nome_organizador.textContent = 'Mutantes'
-                
-                const container_img_evento = document.createElement('div')
-                container_img_evento.id = 'container_img_evento'
-                const img_evento = document.createElement('img')
-                img_evento.classList.add('img_evento')
-                img_evento.src = '25_evento.jpg'
-
-                const container_info_evento = document.createElement('div')
-                container_info_evento.id = 'container_info_evento'
-                const preco = document.createElement('p')
-                preco.classList.add('preco')
-                preco.textContent = '22,00'
-                const data_evento = document.createElement('p')
-                data_evento.classList.add('data_evento')
-                data_evento.textContent = '12/02'
-
-                //adicionando os conteudos na div principal
-                criando_eventos.conteudo_main.appendChild(div_evento)
-
-                div_evento.appendChild(nome_organizador)
-                div_evento.appendChild(container_img_evento)
-                container_img_evento.appendChild(img_evento)
-                div_evento.appendChild(container_info_evento)
-                container_info_evento.appendChild(preco)
-                container_info_evento.appendChild(data_evento)
-            },
-
-            finalizando_criacao: function(){
-                criando_eventos.logo.addEventListener('click', () =>{
-                    criando_eventos.criando_div_evento()
-                })
-            }
-        }
-        criando_eventos.finalizando_criacao()
     </script>
 
 </body>
