@@ -8,9 +8,17 @@
     <link rel="stylesheet" href="notebook_style.css" media="screen and (min-width:1300px)">
     <link rel="stylesheet" href="style.css">
     <style>
-       #container_eventos{
-        display: none;
+        #container_equilibrium{
+            display: none;
+        }
+       table{
+        border-collapse: collapse;
        }
+       th{
+        border: 1px solid black;
+
+       }
+
     </style>
 </head>
 <body>
@@ -39,19 +47,41 @@
                 <li class="escolha_eventos">Festivais</li>
                 <li class="escolha_eventos">Eventos</li>
             </ul>
+
             <h1>Lista de Workshops</h1>
+
             <div id="conteudo_eventos">
+
                 <div class="evento">
-                    <p class="nome_organizador">Organizador</p>
+                    <p class="nome_organizador">Equilibrium Terapias</p>
                     <div id="container_img_evento">
                         <img src="25_evento.jpg" alt="local_evento" class="img_evento">
                     </div>
                     <div id="container_info_evento">
-                        <p class="preco">R$20,00</p>
-                        <p class="data_evento">12/09</p>
+                        <p class="preco">Grátis</p>
+                        <p class="data_evento">15/09</p>
                     </div>
                 </div>
+
             </div>
+        </div>
+
+        <div id="container_equilibrium">
+            <table>
+                <caption>Lista de possiveis pessoas que comparecerão</caption>
+
+                <tr>
+                    <th> </th>
+                    <th>Nome</th>
+                    <th>Idade</th>
+                </tr>
+
+                <tr>
+                    <td>Joana Barros Lima</td>
+                    <td>12</td>
+                </tr>
+            </table>
+
         </div>
 
     </main>
@@ -59,8 +89,7 @@
     <script src="main.js"></script>
 
     <script>
-
-
+       
     </script>
 
 </body>

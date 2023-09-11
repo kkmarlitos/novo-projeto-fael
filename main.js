@@ -68,3 +68,18 @@ const criando_eventos = {
     }
 }
 criando_eventos.finalizando_criacao()
+
+const Equilibrium = {
+    evento_equilibrium : document.querySelectorAll('.evento')[0],
+    container_eventos : document.getElementById('container_eventos'),
+    container_equilibrium : document.getElementById('container_equilibrium'),
+
+    visualizar_lista : function(){
+        Equilibrium.evento_equilibrium.addEventListener('click', () =>{
+            Equilibrium.container_eventos.style.display = 'none'
+            this.container_equilibrium.style.display = 'block'
+        })
+    }
+}
+
+Equilibrium.visualizar_lista()
