@@ -8,10 +8,13 @@ const manipulando_main = {
             manipulando_main.li_array[c].addEventListener('click', () =>{
                 switch(c){
                     case 0: manipulando_main.h1.textContent = frase_h1 + 'Workshops'
+                    Equilibrium.evento_equilibrium.style.display = 'none'
                     break
                     case 1: manipulando_main.h1.textContent = frase_h1 + 'Festivais'
+                    Equilibrium.evento_equilibrium.style.display = 'none'
                     break
                     case 2: manipulando_main.h1.textContent = frase_h1 + 'Eventos'
+                    Equilibrium.evento_equilibrium.style.display = 'block'
                     default:
                 }
             })
