@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+table{
+    border-collapse: collapse;
+    margin: auto;
+   }
+   caption{
+    font-size: 5vw;
+    font-weight: bold;
+    padding-bottom: 3vw;
+   }
+   th{
+    border: 1px solid black;
+    padding: 5px;
+   }
+   td{
+    border: 1px solid black;
+    padding: 5px;
+    text-align: center;
+   }
+   col.nome_tabela{
+    width: 40vw;
+   }
+   col.idade_tabela{
+    width: 15vw;
+   }
